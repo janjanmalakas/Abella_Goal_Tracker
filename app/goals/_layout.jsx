@@ -9,7 +9,7 @@ export default function GoalsLayout() {
       <Tabs
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: '#94921bff',
+          tabBarActiveTintColor: '#a7a41aff',
         }}
       >
         <Tabs.Screen
