@@ -1,41 +1,36 @@
 import { Tabs } from 'expo-router'
 import { Ionicons } from "@expo/vector-icons"
+import { GoalsProvider } from '../../contexts/GoalsContext'
 
 export default function GoalsLayout() {
 
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: 'black',
-        tabBarInactiveTintColor: 'grey',
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Your Goals',
-          tabBarIcon: ({ focused }) => (
-            <Ionicons 
-              size={24} 
-              name={focused ? 'home' : 'home-outline'} 
-              color="black"
-            />
-          ),
+    <GoalsProvider>
+      <Tabs
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: '#94921bff',
         }}
-      />
-      <Tabs.Screen
-        name="create"
-        options={{
-          title: 'Create Goal',
-          tabBarIcon: ({ focused }) => (
-            <Ionicons 
-              size={24} 
-              name={focused ? 'create' : 'create-outline'} 
-              color="black"
-            />
-          ),
-        }}
-      />
-    </Tabs>
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'Your Goals',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="list" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="create"
+          options={{
+            title: 'Add Goal',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="add-circle" color={color} size={size} />
+            ),
+          }}
+        />
+      </Tabs>
+    </GoalsProvider>
   )
 }
